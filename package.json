@@ -1,0 +1,25 @@
+{
+  "name": "jp-shell",
+  "version": "0.0.1",
+  "description": "A set of cli commands that will handle setting up and tearing down Jetpack sites on a ServerPilot managed server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebinnion/Jetpack-Shell.git"
+  },
+  "keywords": [
+    "jetpack",
+    "wordpress",
+    "shell",
+    "serverpilot"
+  ],
+  "author": "Eric Binnion, @ebinnion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ebinnion/Jetpack-Shell/issues"
+  },
+  "homepage": "https://github.com/ebinnion/Jetpack-Shell#readme"
+}
