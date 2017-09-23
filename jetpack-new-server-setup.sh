@@ -34,10 +34,10 @@ apt-get -y install jq wget ca-certificates ocaml make
 echo -e "${PURPLE}Building unison${NC}"
 curl -O curl -O https://www.seas.upenn.edu/~bcpierce/unison//download/releases/stable/unison-2.48.4.tar.gz
 tar -xvzf unison-2.48.4.tar.gz
-cd src
+cd src || exit;
 make UISTYLE=text
 mv unison /usr/local/bin
-cd ../
+cd ../ || exit;
 rm unison-2.48.4.tar.gz
 rm src -rf
 
