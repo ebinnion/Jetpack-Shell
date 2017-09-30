@@ -44,14 +44,21 @@ rm src -rf
 echo -e "${PURPLE}Installing ServerPilot shell scripts${NC}"
 curl -sSL https://raw.githubusercontent.com/kodie/serverpilot-shell/master/lib/serverpilot.sh > \
 	/usr/local/bin/serverpilot && chmod a+x /usr/local/bin/serverpilot
-printf '\nexport serverpilot_client_id="%s"\nexport \serverpilot_api_key="%s"' "$serverpilot_client_id" "$serverpilot_api_key" \
+
+if [[ $( cat $/.bash_profile ) != *"serverpilot_client_id"* ]]; then
+	printf '\nexport serverpilot_client_id="%s"\nexport serverpilot_api_key="%s"' "$serverpilot_client_id" "$serverpilot_api_key" \
 	>> ~/.bash_profile && source ~/.bash_profile
+fi
 
 echo -e "${PURPLE}Registering new server${NC}"
 server_creation_output=$(echo "$server_name" | xargs serverpilot -r servers create "$1")
 
 export SERVERID=$(echo "$server_creation_output" | jq -r '.data.id')
 export SERVERAPIKEY=$(echo "$server_creation_output" | jq -r '.data.apikey')
+
+if [[ $( cat $/.bash_profile ) != *"serverpilot_server_id"* ]]; then
+	printf '\nexport serverpilot_server_id="%s"' "$SERVERID" >> ~/.bash_profile && source ~/.bash_profile
+fi
 
 echo "$server_creation_output"
 
