@@ -73,7 +73,7 @@ if [ -z "$SERVERAPIKEY" ] || [ "null" == "$SERVERAPIKEY" ]; then
 fi
 
 
-echo -e "${BLUE}Use these values below when prompted${NC}"
+echo -e "${BLUE}Use these values below if prompted${NC}"
 echo -e "${BLUE}Server ID: $SERVERID${NC}"
 echo -e "${BLUE}Server API Key: $SERVERAPIKEY${NC}"
 
@@ -88,4 +88,4 @@ rm serverpilot-installer
 rm -- "$0"
 
 echo ""
-echo -e "${GREEN}ServerPilot will now finish setting up your server. May take 1-2 minutes.${NC}"
+echo -e "${GREEN}Success:${NC} ServerPilot will now finish setting up your server. May take 1-2 minutes."
